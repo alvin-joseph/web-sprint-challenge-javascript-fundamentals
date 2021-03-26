@@ -59,9 +59,7 @@ const zooAnimals = [
 
   function animalNames(){
     const displayNames = [];
-    zooAnimals.forEach(function(name){
-      return displayNames.push(`name: ${name.animal_name}, scientific: ${name.scientific_name}`);
-    });
+    zooAnimals.forEach(name => displayNames.push(`name: ${name.animal_name}, scientific: ${name.scientific_name}`));
     return displayNames;
   }
 
@@ -75,13 +73,11 @@ const zooAnimals = [
   */
 
   function lowerCaseNames(){
-    const lowerCase = zooAnimals.map(function(name){
-      return name.animal_name.toLowerCase();
-    });
+    const lowerCase = zooAnimals.map(name => name.animal_name.toLowerCase());
     return lowerCase;
   }
   
-  console.log('Request 2', lowerCaseNames());
+  //console.log('Request 2', lowerCaseNames());
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
@@ -89,13 +85,11 @@ const zooAnimals = [
   */
 
   function lowPopulationAnimals(){
-    const lowPop = zooAnimals.filter(function(animals){
-      return animals.population < 5;
-    });
+    const lowPop = zooAnimals.filter(animals => animals.population < 5);
     return lowPop;
   }
 
-  console.log('Request 3', lowPopulationAnimals());
+  //console.log('Request 3', lowPopulationAnimals());
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -105,13 +99,11 @@ const zooAnimals = [
   */
 
   function USApop(){
-    const totalPop = zooAnimals.reduce(function(acc, num){
-      return acc + num.population;
-    }, 0);
+    const totalPop = zooAnimals.reduce((acc, num) => acc + num.population, 0);
     return totalPop;
   }
   
-  console.log('Request 4', USApop());
+  //console.log('Request 4', USApop());
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
@@ -147,9 +139,9 @@ function greeting(a, b){
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-   console.log(consume(2, 2, add)); // 4
-   console.log(consume(10, 16, multiply)); // 160
-   console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+  // console.log(consume(2, 2, add)); // 4
+  // console.log(consume(10, 16, multiply)); // 160
+  // console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
   
   
 // 🦁💪 Stretch: If you haven't already, convert your array method callbacks into arrow functions - make sure you comment out this section before you submit your work 🦁💪
@@ -206,8 +198,8 @@ const cuboid = new CuboidMaker({
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
- console.log(cuboid.volume()); // 100
- console.log(cuboid.surfaceArea()); // 130
+// console.log(cuboid.volume()); // 100
+// console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
@@ -236,18 +228,35 @@ const cuboidTwo = new CuboidMakerTwo({
 })
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
- console.log(cuboidTwo.volume()); // 100
- console.log(cuboidTwo.surfaceArea()); // 130
+// console.log(cuboidTwo.volume()); // 100
+// console.log(cuboidTwo.surfaceArea()); // 130
 
 
 
 
 
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
-  
+/*  
+class CubeMaker extends CuboidMaker{
+  constructor(properties){
+    super(properties);
+  }
 
+  volume(){
+    return Math.pow(this.length, 3);
+  }
 
+  surfaceArea(){
+    return 6 * (Math.pow(this.length, 2));
+  }
+}
 
+const cube = new CubeMaker({
+  length: 4
+}) */
+
+//console.log('Stretch', cube.volume());
+//console.log('Stretch', cube.surfaceArea())
 
 
   /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
