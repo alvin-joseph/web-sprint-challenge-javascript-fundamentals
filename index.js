@@ -15,10 +15,7 @@ function myFunction() {
 }
 myFunction();
 
-//🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
-
-
-
+//🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: It is because the variable was declared outside of the scope of the function. As long as the variable is outside, the function can reach out and use the information. A function can always reach outside of it's scope and use information but cannot access an inner function's variables.
 
 
 /* 🚀🚀🚀 Task 2: Counter 🚀🚀🚀 */
@@ -28,11 +25,15 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(num) {
+  let total = 0;
+  for(let i = 1; i <= num; i++){
+    total += i;
+  }
+  return total;
   }
  
+//console.log('Task 2', summation(5));
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -56,9 +57,15 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(){
+    const displayNames = [];
+    zooAnimals.forEach(function(name){
+      return displayNames.push(`name: ${name.animal_name}, scientific: ${name.scientific_name}`);
+    });
+    return displayNames;
   }
+
+  //console.log('Request 1', animalNames());
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -67,19 +74,28 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(){
+    const lowerCase = zooAnimals.map(function(name){
+      return name.animal_name.toLowerCase();
+    });
+    return lowerCase;
   }
   
+  console.log('Request 2', lowerCaseNames());
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(){
+    const lowPop = zooAnimals.filter(function(animals){
+      return animals.population < 5;
+    });
+    return lowPop;
   }
+
+  console.log('Request 3', lowPopulationAnimals());
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -88,10 +104,14 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(){
+    const totalPop = zooAnimals.reduce(function(acc, num){
+      return acc + num.population;
+    }, 0);
+    return totalPop;
   }
   
+  console.log('Request 4', USApop());
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
